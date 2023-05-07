@@ -3,17 +3,31 @@ const AddCoffee = () => {
 
     const handleAddCoffee = (event) => {
         event.preventDefault()
-        const form=event.target;
-        const name=form.name.value;
-        const quantity=form.name.value;
-        const supplier=form.supplier.value;
-        const taste=form.taste.value;
-        const category=form.category.value;
-        const details=form.details.value;
-        const photo=form.photo.value;
-        const coffeeInputValue={name,quantity,supplier,taste,category,details,photo}
-        console.log(coffeeInputValue);
+        const form = event.target;
+        const name = form.name.value;
+        const quantity = form.name.value;
+        const supplier = form.supplier.value;
+        const taste = form.taste.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const photo = form.photo.value;
+        const addNewCoffee = { name, quantity, supplier, taste, category, details, photo }
+        console.log(addNewCoffee);
 
+
+        // Send Data To the database using Backend
+        fetch('http://localhost:5000/coffee', {
+            method:'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addNewCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+               
+            })
     }
 
 
