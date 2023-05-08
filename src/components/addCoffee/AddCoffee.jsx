@@ -1,11 +1,12 @@
 
+import Swal from 'sweetalert2';
 const AddCoffee = () => {
 
     const handleAddCoffee = (event) => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const quantity = form.name.value;
+        const quantity = form.quantity.value;
         const supplier = form.supplier.value;
         const taste = form.taste.value;
         const category = form.category.value;
@@ -26,6 +27,12 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                Swal({
+                    title: "Success",
+                    text: "User Added Successfully to Database",
+                    icon: "success",
+                    confirmbuttonText:'okay'
+                  })
                
             })
     }
@@ -42,7 +49,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Coffee Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 ml-4">
@@ -50,7 +57,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Available Quantity</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
+                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -61,7 +68,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Supplier</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="supplier" placeholder="Coffee Supplier" className="input input-bordered w-full" />
+                            <input type="text" name="supplier" placeholder="Coffee Supplier" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 ml-4">
@@ -69,7 +76,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Taste</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="taste" placeholder="Coffee Taste" className="input input-bordered w-full" />
+                            <input type="text" name="taste" placeholder="Coffee Taste" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -80,7 +87,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 ml-4">
@@ -88,7 +95,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Details</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -99,7 +106,7 @@ const AddCoffee = () => {
                             <span className="label-text font-bold">Photo</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
+                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
